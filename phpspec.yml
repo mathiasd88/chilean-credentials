@@ -1,0 +1,4 @@
+suites:
+    default:
+        namespace: Mathiasd88\ChileanCredentials
+        psr4_prefix: Mathiasd88\ChileanCredentials
