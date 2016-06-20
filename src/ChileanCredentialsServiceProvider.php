@@ -1,6 +1,7 @@
 <?php namespace Mathiasd88\ChileanCredentials;
 
 use Illuminate\Support\ServiceProvider;
+use Validator;
 
 class ChileanCredentialsServiceProvider extends ServiceProvider
 {
@@ -14,7 +15,6 @@ class ChileanCredentialsServiceProvider extends ServiceProvider
         app()->bind('rut', function() {
             return new Rut;
         });
-
     }
 
     /**
@@ -24,6 +24,6 @@ class ChileanCredentialsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        
+        //
     }
 }

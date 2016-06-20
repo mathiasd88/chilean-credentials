@@ -1,6 +1,6 @@
 {
     "name": "mathiasd88/chilean-credentials",
-    "description": "Chilen credentials package for Laravel 5.* (Rut and Passport)",
+    "description": "Chilean credentials package for Laravel 5.* (Rut and Passport)",
     "homepage": "https://github.com/mathiasd88/chilean-credentials",
     "keywords": ["laravel", "chile", "rut", "passport",  "credentials"],
     "license": "MIT",

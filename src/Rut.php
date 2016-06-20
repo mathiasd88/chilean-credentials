@@ -7,7 +7,7 @@ class Rut
      * 
      * @param  string $rut
      * 
-     * @return booleam
+     * @return boolean
      */
     public function validates($rut)
     {
@@ -16,6 +16,18 @@ class Rut
         $dv = $this->getDv($rut['run']);
 
         return ($rut['dv'] == $dv);
+    }
+
+    /**
+     * Alias for validates method.
+     * 
+     * @param  string $rut
+     * 
+     * @return boolean
+     */
+    public function validate($rut)
+    {
+        return $this->validates($rut);
     }
 
     /**
