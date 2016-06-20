@@ -53,3 +53,7 @@ return Rut::createRandom(); // returns a valid rut, for example: '23932394-4'
 ### Tests
 
 You can run all the tests using phpspec.
+
+```
+vendor/bin/phpspec run
+```
