@@ -28,7 +28,7 @@ If you want to use the facade, add this to your facades in app.php:
 
 #### Examples:
 
-**If you want to validate a rut**
+If you want to validate a rut:
 
 ```php
 return Rut::validate('15082666-7'); // returns true
@@ -38,13 +38,13 @@ return Rut::validate('15082666-7'); // returns true
 return Rut::validate('15082666-K'); // returns false
 ```
 
-**If you want to get the "digito verificador" of a given rut**
+If you want to get the "digito verificador" of a given rut:
 
 ```php
 return Rut::getDv('15082666'); // returns 7
 ```
 
-**If you want to create a valid rut**
+If you want to create a valid rut:
 
 ```php
 return Rut::createRandom(); // returns a valid rut, for example: '23932394-4'
