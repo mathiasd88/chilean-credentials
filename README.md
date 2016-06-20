@@ -1,5 +1,7 @@
 ## Laravel Chilean Credentials
 
+[![Build Status](https://travis-ci.org/mathiasd88/chilean-credentials.svg?branch=master)](https://travis-ci.org/mathiasd88/chilean-credentials)
+
 A Chilean RUT credentials package for PHP.
 
 ## Installation
