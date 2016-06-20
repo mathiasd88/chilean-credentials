@@ -1,6 +1,6 @@
 ## Laravel Chilean Credentials
 
-A Chilean credentials API for PHP.
+A Chilean RUT credentials package for PHP.
 
 ## Installation
 
