@@ -1,8 +1,8 @@
-## Laravel Chilean Credentials
+## Framework Agnostic Chilean Credentials Package
 
 [![Build Status](https://travis-ci.org/mathiasd88/chilean-credentials.svg?branch=master)](https://travis-ci.org/mathiasd88/chilean-credentials)
 
-A Chilean RUT credentials package for PHP.
+A Chilean RUT credentials package for PHP 5.6+.
 
 ## Installation
 
@@ -12,18 +12,10 @@ Require this package with composer:
 composer require mathiasd88/chilean-credentials
 ```
 
-After updating composer, add the ServiceProvider to the providers array in config/app.php
-
-### Laravel 5.x:
+Then use the class wherever you want using:
 
 ```
-Mathiasd88\ChileanCredentials\ChileanCredentialsServiceProvider::class,
-```
-
-If you want to use the facade, add this to your facades in app.php:
-
-```
-'Rut' => Mathiasd88\ChileanCredentials\Facades\Rut::class,
+use Mathiasd88\ChileanCredentials\Rut
 ```
 
 ## Usage
@@ -54,8 +46,8 @@ return Rut::createRandom(); // returns a valid rut, for example: '23932394-4'
 
 ### Tests
 
-You can run all the tests using phpspec.
+You can run all the tests using phpunit.
 
 ```
-vendor/bin/phpspec run
+vendor/phpunit/phpunit/phpunit tests --colors
 ```
