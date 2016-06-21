@@ -9,11 +9,11 @@ class Rut
      * 
      * @return boolean
      */
-    public function validates($rut)
+    public static function validates($rut)
     {
-        $rut = $this->format($rut);
+        $rut = self::format($rut);
 
-        $dv = $this->getDv($rut['run']);
+        $dv = self::getDv($rut['run']);
 
         return ($rut['dv'] == $dv);
     }
@@ -25,9 +25,9 @@ class Rut
      * 
      * @return boolean
      */
-    public function validate($rut)
+    public static function validate($rut)
     {
-        return $this->validates($rut);
+        return self::validates($rut);
     }
 
     /**
@@ -37,7 +37,7 @@ class Rut
      * 
      * @return array
      */
-    private function format($rut)
+    private static function format($rut)
     {
         $rut = str_replace(".", "", $rut);
 
@@ -56,9 +56,9 @@ class Rut
      * 
      * @return string
      */
-    public function dv($run)
+    public static function dv($run)
     {
-        return $this->getDv($run);
+        return self::getDv($run);
     }
 
     /**
@@ -68,7 +68,7 @@ class Rut
      * 
      * @return string
      */
-    public function getDv($run)
+    public static function getDv($run)
     {
         $i = 2;
         $suma = 0;
@@ -95,11 +95,11 @@ class Rut
      * 
      * @return string
      */
-    public function createRandom()
+    public static function createRandom()
     {
         $numAleatorio = rand(1000000, 25000000);
 
-        $dv = $this->getDv($numAleatorio);
+        $dv = self::getDv($numAleatorio);
 
         return $numAleatorio . '-' . $dv;
     }
