@@ -15,7 +15,7 @@ composer require mathiasd88/chilean-credentials
 Then use the class wherever you want using:
 
 ```
-use Mathiasd88\ChileanCredentials\Rut
+use Mathiasd88\ChileanCredentials\Rut;
 ```
 
 ## Usage
