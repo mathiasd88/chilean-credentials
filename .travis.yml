@@ -12,4 +12,4 @@ before_script:
   - composer dumpautoload
 
 script:
-  - phpunit tests
+  - vendor/phpunit/phpunit/phpunit tests
