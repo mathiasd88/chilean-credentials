@@ -25,23 +25,23 @@ use Mathiasd88\ChileanCredentials\Rut;
 If you want to validate a rut:
 
 ```php
-return Rut::validate('15082666-7'); // returns true
+return (new Rut('15082666', '7'))->isValid(); // returns true
 ```
 
 ```php
-return Rut::validate('15082666-K'); // returns false
+return (new Rut('15082666', 'K'))->isValid(); // returns false
 ```
 
 If you want to get the "digito verificador" of a given rut:
 
 ```php
-return Rut::getDv('15082666'); // returns 7
+return (new Rut('15082666'))->dv(); // returns 7
 ```
 
 If you want to create a valid rut:
 
 ```php
-return Rut::createRandom(); // returns a valid rut, for example: '23932394-4'
+return new Rut(); // returns a valid rut, for example: '23932394-4'
 ```
 
 ### Tests
