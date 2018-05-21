@@ -2,7 +2,7 @@
     "name": "mathiasd88/chilean-credentials",
     "description": "Chilean credentials package for PHP (Rut and Passport)",
     "homepage": "https://github.com/mathiasd88/chilean-credentials",
-    "keywords": ["laravel", "chile", "rut", "passport",  "credentials"],
+    "keywords": ["chile", "rut", "passport",  "credentials"],
     "license": "MIT",
     "authors": [
         {

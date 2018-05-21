@@ -3,86 +3,70 @@
 class Rut
 {
     /**
-     * Verifica si un rut es válido o no.
-     * 
-     * @param  string $rut
-     * 
-     * @return boolean
+     * @var int|null|string
      */
-    public static function validates($rut)
+    private $run;
+
+    /**
+     * @var int|null|string
+     */
+    private $dv;
+
+    /**
+     * Rut constructor.
+     * @param null $run
+     * @param null $dv
+     */
+    public function __construct($run = null, $dv = null)
     {
-        $rut = self::format($rut);
+        $this->run = is_null($run) ? $this->random() : $run;
+        $this->run = $this->format();
 
-        $dv = self::getDv($rut['run']);
-
-        return ($rut['dv'] == $dv);
+        $this->dv = is_null($dv) ? $this->calculateDv() : $dv;
     }
 
     /**
-     * Alias for validates method.
-     * 
-     * @param  string $rut
-     * 
-     * @return boolean
-     */
-    public static function validate($rut)
-    {
-        return self::validates($rut);
-    }
-
-    /**
-     * Formatea un rut para poder trabajarlo.
-     * 
-     * @param  string $rut
-     * 
-     * @return array
-     */
-    private static function format($rut)
-    {
-        $rut = str_replace(".", "", $rut);
-
-        $rut = explode("-", $rut);
-
-        return [
-            'run' => $rut[0],
-            'dv' => strtoupper($rut[1])
-        ];
-    }
-
-    /**
-     * Alias del método getDv().
-     * 
-     * @param  string $run
-     * 
      * @return string
      */
-    public static function dv($run)
+    private function format()
     {
-        return self::getDv($run);
+        return str_replace(".", "", $this->run);
     }
 
     /**
-     * Obtiene el dígito verificador para un rut dado.
-     * 
-     * @param  string $run
-     * 
+     * @return bool
+     */
+    public function isValid()
+    {
+        return $this->dv == $this->calculateDv();
+    }
+
+    /**
      * @return string
      */
-    public static function getDv($run)
+    public function dv()
+    {
+        return $this->dv;
+    }
+
+    /**
+     * @return int|string
+     */
+    private function calculateDv()
     {
         $i = 2;
-        $suma = 0;
+        $sum = 0;
 
-        foreach(array_reverse(str_split($run)) as $v) {
+        foreach(array_reverse(str_split($this->run)) as $v) {
             if ($i == 8) {
                 $i = 2;
             }
 
-            $suma += $v * $i;
+            $sum += $v * $i;
             ++$i;
         }
 
-        $dv = 11 - ($suma % 11);
+        $dv = 11 - ($sum % 11);
 
         if($dv == 11) $dv = 0;
         if($dv == 10) $dv = 'K';
@@ -91,16 +75,18 @@ class Rut
     }
 
     /**
-     * Crea un rut aleatorio válido.
-     * 
+     * @return int
+     */
+    public function random()
+    {
+        return rand(1000000, 25000000);
+    }
+
+    /**
      * @return string
      */
-    public static function createRandom()
+    public function __toString()
     {
-        $numAleatorio = rand(1000000, 25000000);
-
-        $dv = self::getDv($numAleatorio);
-
-        return $numAleatorio . '-' . $dv;
+        return $this->run . '-' . $this->dv;
     }
 }

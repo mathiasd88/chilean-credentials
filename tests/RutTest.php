@@ -7,32 +7,32 @@ class RutTest extends PHPUnit_Framework_TestCase
     /** @test */
     public function it_returns_true_if_it_is_a_valid_rut()
     {
-        $validRut = '16941476-9';
+        $rut = new Rut('16941476', '9');
 
-        $this->assertTrue(Rut::validates($validRut));
+        $this->assertTrue($rut->isValid());
     }
 
     /** @test */
     public function it_returns_false_if_it_is_a_invalid_rut()
     {
-        $invalidRut = '16941476-K';
+        $rut = new Rut('16941476', 'k');
 
-        $this->assertFalse(Rut::validates($invalidRut));
+        $this->assertFalse($rut->isValid());
     }
 
     /** @test */
     public function it_returns_a_valid_dv()
     {
-        $rut = '16941476';
+        $rut = new Rut('16941476');
 
-        $this->assertEquals('9', Rut::getDv($rut));
+        $this->assertEquals('9', $rut->dv());
     }
 
     /** @test */
     public function it_creates_a_random_rut()
     {
-        $randomRut = Rut::createRandom();
+        $randomRut = new Rut();
 
-        $this->assertTrue(Rut::validate($randomRut));
+        $this->assertTrue($randomRut->isValid());
     }
 }
